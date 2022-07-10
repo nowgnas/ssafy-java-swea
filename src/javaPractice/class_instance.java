@@ -34,6 +34,29 @@ class Calculator {
     }
 }
 
+class Calculator2 {
+    int left, right;
+
+    public void setOperands(int left, int right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    public void sum() {
+        System.out.println(this.left + this.right);
+    }
+
+    public void avg() {
+        System.out.println((this.left + this.right) / 2);
+    }
+}
+
+class SubstractionableCalculator extends Calculator2 {
+    public void subtract() {
+        System.out.println(this.left - this.right);
+    }
+}
+
 public class class_instance {
 
     public static void main(String[] args) {
@@ -56,5 +79,12 @@ public class class_instance {
         Calculator.static_instance(); // static은 클래스로 접근
 
         c1.m();
+        System.out.println("----------------- 상속 ----------------------");
+        // ----------------------------- 상속 --------------------------
+        SubstractionableCalculator sub1 = new SubstractionableCalculator();
+        sub1.setOperands(20, 30);
+        sub1.sum();
+        sub1.avg();
+        sub1.subtract();
     }
 }
